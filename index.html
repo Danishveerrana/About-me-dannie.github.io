@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dannie | About Me</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-6 font-sans">
+
+  <!-- Header -->
+  <div class="text-center mb-12 animate__animated animate__fadeInDown">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-wide">Hi, I'm <span class="text-blue-400">Dannie</span></h1>
+    <p class="text-lg text-slate-300">Creative Coder | UI Designer | Tech Explorer</p>
+  </div>
+
+  <!-- Main Cards -->
+  <div class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+    <div class="glass rounded-2xl p-6 shadow-xl fade-in-up hover:scale-[1.03] transition-all duration-300">
+      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+      <p class="text-slate-300">I'm a developer who loves turning ideas into reality. I build interactive, mobile-friendly websites and apps with a creative edge.</p>
+    </div>
+    <div class="glass rounded-2xl p-6 shadow-xl fade-in-up hover:scale-[1.03] transition-all duration-300">
+      <h2 class="text-2xl font-semibold mb-4">Skills & Tools</h2>
+      <ul class="list-disc list-inside text-slate-300 space-y-1">
+        <li>HTML, CSS, JS, Tailwind</li>
+        <li>Python, Flask, Firebase</li>
+        <li>Figma, UI/UX Design</li>
+        <li>GitHub, APIs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="text-center mt-12 animate__animated animate__fadeInUp">
+    <p class="text-slate-300 mb-4">Let’s connect and build something impactful!</p>
+    <div class="flex justify-center gap-6 text-xl">
+      <a href="https://github.com" target="_blank" class="hover:text-blue-400">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" class="hover:text-blue-500">LinkedIn</a>
+      <a href="mailto:example@example.com" class="hover:text-pink-400">Email</a>
+    </div>
+  </div>
+
+  <!-- Fade-in animation on scroll -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    faders.forEach(fade => observer.observe(fade));
+  </script>
+</body>
+</html>
